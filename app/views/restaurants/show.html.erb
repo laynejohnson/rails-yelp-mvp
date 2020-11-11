@@ -3,4 +3,14 @@
 <h4><%= @restaurant.address %></h4>
 <h4><%= @restaurant.category.capitalize %></h4>
 
+<h5>Reviews</h5>
+<h6><%= link_to "Leave Review", new_restaurant_review_path(@restaurant)%> </h6>
+
+<h6><%= @restaurant.reviews.count %> Reviews</h6>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+  <li><%= review.rating %>:<%= review.content %></li>
+  <% end %>
+</ul>
+
 <%= link_to "Back to my restaurants", restaurants_path %>

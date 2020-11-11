@@ -12,3 +12,7 @@ categories = ["chinese", "italian", "japanese", "french", "belgian"]
   Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address,
                     phone_number: Faker::PhoneNumber.phone_number, category: categories.sample)
 end
+
+10.times do
+  Review.create(rating: (0..5).sample, content: Faker::Quotes::Shakespeare.hamlet_quote, restaurant_id: (1..10).sample)
+end
